@@ -3,7 +3,7 @@ import './Appbar.css';
 
 function Appbar() {
   return (
-    <div className="Appbarroot">
+    <div className="Appbar">
         
         <h2>Blend</h2>
     </div>
