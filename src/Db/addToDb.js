@@ -1,7 +1,7 @@
 /*
     Add an item to the database
 */
-export function addToDb(item) {
+function addToDb(item) {
     var db;
 
     var openRequest = indexedDB.open('test_db', 1);
@@ -29,4 +29,7 @@ export function addToDb(item) {
             console.log("success");
         };
     }
+
 }
+
+export default addToDb;

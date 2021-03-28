@@ -1,4 +1,4 @@
-export function getAllFromDb() {
+function getAllFromDb() {
     return new Promise(function (resolve) {
 
         var db;
@@ -27,3 +27,5 @@ export function getAllFromDb() {
 
     });
 }
+
+export default getAllFromDb;

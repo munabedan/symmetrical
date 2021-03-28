@@ -1,7 +1,7 @@
 /*
     Check if the browser you are using supports indexed.db
 */
-export function checkDbSupport() {
+function checkDbSupport() {
     let indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
     window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
@@ -15,3 +15,4 @@ export function checkDbSupport() {
 
 
 }
+export default checkDbSupport;
