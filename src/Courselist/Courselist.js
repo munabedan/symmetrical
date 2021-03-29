@@ -5,15 +5,15 @@ import '../Db/getAllFromDb.js'
 //import getAllFromDb from '../Db/getAllFromDb.js';
 
 
-function Courselist() {
+const courselist=()=>{
   return (
     <div className="Courselist">
-      <p>hello</p>
-      <p>hello</p>
-
-      <p>hello</p>
-
-      <p>hello</p>
+      
+                <h6>Am the list</h6>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+          
 
         {/*
           getAllFromDb().then((result)=>{
@@ -26,4 +26,4 @@ function Courselist() {
   );
 }
 
-export default Courselist;
+export default courselist;
