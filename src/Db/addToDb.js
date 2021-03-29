@@ -1,10 +1,10 @@
 /*
     Add an item to the database
 */
-function addToDb(item) {
+function addToDb(dbName,storeName,item) {
     var db;
 
-    var openRequest = indexedDB.open('test_db', 1);
+    var openRequest = indexedDB.open(dbName, 1);
 
     openRequest.onsuccess = function (e) {
         db = e.target.result;
@@ -15,8 +15,8 @@ function addToDb(item) {
     };
 
     function addItem(item) {
-        var transaction = db.transaction(['coursesStore'], 'readwrite');
-        var store = transaction.objectStore('coursesStore');
+        var transaction = db.transaction([storeName], 'readwrite');
+        var store = transaction.objectStore(storeName);
 
 
         var request = store.put(item);
