@@ -48,15 +48,42 @@ class Fab extends Component {
                 {this.state.display.showList ? <Courselist></Courselist> : null}
                 {this.state.display.showMenu ? <Addcourse handler={this.swicthToListHandler}></Addcourse> : null}
 
-                <button
-                    onClick={
-                        this.switchToMenuHandler
-                    }
-                >
-                    plus button
-                </button>
+               
 
+                <div className="fab-wrapper">
+                    <input id="fabCheckbox" type="checkbox" className="fab-checkbox" />
+                    <label className="fab" for="fabCheckbox">
+                        <span className="fab-dots fab-dots-1"></span>
+                        <span className="fab-dots fab-dots-2"></span>
+                        <span className="fab-dots fab-dots-3"></span>
+                    </label>
+                    <div className="fab-wheel">
+
+
+                        <button className="fab-action fab-action-1" id="fab-action-1"
+                        onClick={
+                            this.switchToMenuHandler
+                        }
+                        >
+                            <i className="fas fa-plus"></i>
+                        </button>
+
+
+                        <button className="fab-action fab-action-2">
+                            <i className="fas fa-book"></i>
+                        </button>
+                        <button className="fab-action fab-action-3">
+                            <i className="fas fa-address-book"></i>
+                        </button>
+
+                        <button className="fab-action fab-action-4">
+                            <i className="fas fa-info"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+
+
 
         );
 
