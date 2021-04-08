@@ -40,19 +40,24 @@ class Fab extends Component {
         })
 
     }
+    
 
     render() {
         console.log(this.state)
         return (
             <div>
+                {
+                    console.log("evaluate show course list")
+                }
                 {this.state.display.showList ? <Courselist></Courselist> : null}
+                
                 {this.state.display.showMenu ? <Addcourse handler={this.swicthToListHandler}></Addcourse> : null}
 
-               
+
 
                 <div className="fab-wrapper">
                     <input id="fabCheckbox" type="checkbox" className="fab-checkbox" />
-                    <label className="fab" for="fabCheckbox">
+                    <label className="fab" htmlFor="fabCheckbox">
                         <span className="fab-dots fab-dots-1"></span>
                         <span className="fab-dots fab-dots-2"></span>
                         <span className="fab-dots fab-dots-3"></span>
@@ -61,9 +66,9 @@ class Fab extends Component {
 
 
                         <button className="fab-action fab-action-1" id="fab-action-1"
-                        onClick={
-                            this.switchToMenuHandler
-                        }
+                            onClick={
+                                this.switchToMenuHandler
+                            }
                         >
                             <i className="fas fa-plus"></i>
                         </button>

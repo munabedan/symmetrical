@@ -2,28 +2,23 @@ import React from 'react';
 import './Courselist.css';
 
 import '../Db/getAllFromDb.js'
-//import getAllFromDb from '../Db/getAllFromDb.js';
+import getAllData from '../Db/getAllFromDb';
 
 
-const courselist=()=>{
+function Courselist() {
+
+
+
+
   return (
     <div className="Courselist">
-      
-                <h6>Am the list</h6>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-          
-
-        {/*
-          getAllFromDb().then((result)=>{
-            for(var i=0; i<result.length; i++){
-              console.log(result[i].courseName)
-            }
-          })*/
-        }
+      {
+        console.log(getAllData('test', 'coursesstore'))
+      }
     </div>
   );
+
+
 }
 
-export default courselist;
+export default Courselist;

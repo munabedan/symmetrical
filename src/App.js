@@ -12,7 +12,6 @@ function App() {
         createDb("test","coursesstore","courseId")
       }
      <Appbar></Appbar>
-
      <Fab></Fab>
     </div>
   );

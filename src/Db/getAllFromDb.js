@@ -1,21 +1,21 @@
-function getAllFromDb() {
-    return new Promise(function (resolve) {
-
+/*await function getAllFromDb() {
+    
         var db;
 
-        var openRequest = indexedDB.open('test_db', 1);
+        var openRequest = await indexedDB.open(dbName, 1);
 
         openRequest.onsuccess = function (e) {
 
 
             db = e.target.result;
 
-            var transaction = db.transaction(['coursesStore'], 'readonly');
-            var store = transaction.objectStore('coursesStore');
+            var transaction = db.transaction([storeName], 'readonly');
+            var store = transaction.objectStore(storeName);
 
 
             store.getAll().onsuccess = function (event) {
-                return resolve(event.target.result);
+                console.log("onsuccess")
+                (event.target.result)
             };
         };
 
@@ -24,8 +24,17 @@ function getAllFromDb() {
             console.log('onerror!');
             console.dir(e);
         };
+*/
 
-    });
+import {openDB} from 'idb';
+ async function getAllData(dbName,storeName){
+    let db = await openDB(dbName,1)
+   
+
+   let allSavedItems=await db.getAll(storeName)
+   
+   return allSavedItems;
+
 }
 
-export default getAllFromDb;
+export default getAllData;

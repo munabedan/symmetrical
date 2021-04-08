@@ -29,7 +29,7 @@ class Addcourse extends React.Component {
                     <div className="form-container">
                         <form onSubmit={this.submitHandler}>
                             <h1>Add a course</h1>
-                            <label for="courseName" ><b>Course name</b></label>
+                            <label htmlFor="courseName" ><b>Course name</b></label>
                             <input id="courseNameInput" type="text" placeholder="Enter the course name" name="courseName" required
                                 onChange={(event) => {
                                     this.setState({
@@ -39,7 +39,7 @@ class Addcourse extends React.Component {
                             />
 
 
-                            <label for="courseId" ><b>Course ID</b></label>
+                            <label htmlFor="courseId" ><b>Course ID</b></label>
                             <input id="courseIdInput" type="text" placeholder="Enter the course ID" name="courseId" required
                                 onChange={(event) => {
                                     this.setState({
@@ -48,7 +48,7 @@ class Addcourse extends React.Component {
                                 }}
                             />
 
-                            <label for="roomNumber" ><b>Room Number</b></label>
+                            <label htmlFor="roomNumber" ><b>Room Number</b></label>
                             <input id="roomNumberInput" type="text" placeholder="Enter the roomNumber" name="roomNumber" required
 
                                 onChange={(event) => {
