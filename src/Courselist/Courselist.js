@@ -3,7 +3,9 @@ import './Courselist.css';
 
 import '../Db/getAllFromDb.js'
 import getAllData from '../Db/getAllFromDb';
-import Coursecard from '../Coursecard/Coursecard.js';
+
+import Coursecard from '../Coursecard/Coursecard';
+
 
 class Courselist extends React.Component {
   
@@ -27,7 +29,7 @@ class Courselist extends React.Component {
     this.state.courseData.forEach(course => {
       cards.push(
 
-        <Coursecard key={course.courseId} course={course}>
+        <Coursecard key={course.courseId} courseName={course.courseName} leavesLeft="6" absentsIncurred="5">
 
         </Coursecard>
 

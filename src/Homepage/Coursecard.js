@@ -43,7 +43,7 @@ const Lecture = (props) => {
     return (
 
         <Card className={classes.root} >
-            <div classname={classes.lectureDetails}>
+            <div className={classes.lectureDetails}>
                 <CardContent className={classes.content}>
                     <Typography component="p"
                         variant="subtitle2"
