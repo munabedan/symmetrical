@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import Typography from '@material-ui/core/Typography';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -39,10 +40,16 @@ const useStyles = makeStyles({
 
 const Coursecard = (props) => {
     const classes = useStyles();
-console.log(props)
+    const history = useHistory();
+
+    const handleClick=()=>{
+    console.log("clicked");
+    history.push('/course/'+ props.courseId)
+    }
+
     return (
 
-        <Card className={classes.root} >
+        <Card className={classes.root} onClick={handleClick}>
             <div className={classes.lectureDetails}>
                 <CardContent className={classes.content}>
                     <Typography component="p"

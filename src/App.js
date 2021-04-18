@@ -1,20 +1,30 @@
 import React from 'react';
-import Appbar from './Appbar/Appbar';
 import createDb from './Db/createDb'
-import Fab from './Fab/Fab';
 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Home from './Homepage/Home';
+import Coursepage from './Coursepage/Coursepage';
 function App() {
   return (
     <div className="App">
       {
         //create a database crateDb(dbName,storeName,keyName)
-        createDb("test","coursesstore","courseId")
+        createDb("test", "coursesstore", "courseId")
       }
-     <Appbar></Appbar>
-     <Fab></Fab>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route
+            path="/course/:name"
+            render={props => <Coursepage text="Hello, " {...props} />}
+          />
+        </Switch>
+      </Router>
 
-   
-   
+
+
+
     </div>
   );
 }

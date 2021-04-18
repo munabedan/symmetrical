@@ -22,14 +22,19 @@ class Courselist extends React.Component {
     )
   }
   
-  
+ 
   render() {
     let cards=[]
 
     this.state.courseData.forEach(course => {
       cards.push(
 
-        <Coursecard key={course.courseId} courseName={course.courseName} leavesLeft="6" absentsIncurred="5">
+        <Coursecard key={course.courseId} 
+         courseName={course.courseName}
+         courseId={course.courseId}
+         leavesLeft="6" 
+         absentsIncurred="5"
+        >
 
         </Coursecard>
 
