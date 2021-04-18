@@ -3,20 +3,45 @@ import './Courselist.css';
 
 import '../Db/getAllFromDb.js'
 import getAllData from '../Db/getAllFromDb';
+import Coursecard from '../Coursecard/Coursecard.js';
 
+class Courselist extends React.Component {
+  
+  state = {
+    courseData: []
+  }
 
-function Courselist() {
-
-
-
-
-  return (
-    <div className="Courselist">
-      {
-        console.log(getAllData('test', 'coursesstore'))
+  componentDidMount() {
+    this.asyncRequest = getAllData('test', 'coursesstore').then(
+      (externalData) => {
+        this._asyncRequest = null;
+        this.setState({ courseData : externalData })
       }
-    </div>
-  );
+    )
+  }
+  
+  
+  render() {
+    let cards=[]
+
+    this.state.courseData.forEach(course => {
+      cards.push(
+
+        <Coursecard key={course.courseId} course={course}>
+
+        </Coursecard>
+
+      )
+
+    });
+
+
+    return (
+      < div className="Classlist" >
+        {cards}
+      </div >
+    )
+  }
 
 
 }

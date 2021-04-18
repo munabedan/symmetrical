@@ -17,10 +17,10 @@ class Addcourse extends React.Component {
         event.preventDefault();
         console.log(this.state)
 
-        addToDb("test","coursesstore",this.state)
+        addToDb("test", "coursesstore", this.state)
 
         this.props.handler()
-        
+
     }
     render() {
         return (
@@ -57,7 +57,33 @@ class Addcourse extends React.Component {
                                     })
                                 }}
                             />
+                            <br></br>
+                            <input type="checkbox" id="mon" name="mon" value="monday" />
+                            <label htmlFor="mon"> Monday</label>
+                            <br></br>
+                            <input type="checkbox" id="tue" name="tue" value="monday" />
+                            <label htmlFor="tue"> Tuesday</label>
+                            <br></br>
+                            <input type="checkbox" id="wed" name="wed" value="monday" />
+                            <label htmlFor="wed"> Wednesday</label>
+                            <br></br>
+                            <input type="checkbox" id="thu" name="thu" value="monday" />
+                            <label htmlFor="thu"> Thursday</label>
+                            <br></br>
+                            <input type="checkbox" id="fri" name="fri" value="monday" />
+                            <label htmlFor="fri"> Friday</label>
+                            <br></br>
+                            <input type="checkbox" id="sat" name="sat" value="monday" />
+                            <label htmlFor="sat"> Saturday</label>
+                            <br></br>
+                            <input type="checkbox" id="sun" name="sun" value="monday" />
+                            <label htmlFor="sun"> Sunday</label>
+                            <br></br>
 
+                            <label htmlFor="appt">Choose a time for your meeting:</label>
+
+                            <input type="time" id="appt" name="appt" min="09:00" max="18:00" required />
+                                <br></br>
 
                             <button className="btn" id="submit">Save</button>
                             <button type="button" className="btn cancel" id="closeForm"
