@@ -1,6 +1,7 @@
 import React from 'react';
 import Appbar from './Appbar/Appbar';
-
+import Dashcards from './Dashcards/Dashcards';
+import Calender from './Calender/Calender'
 class Coursepage extends React.Component {
   
   state = {
@@ -19,6 +20,15 @@ class Coursepage extends React.Component {
     return (
       < div className="Coursepage" >
           <Appbar></Appbar>
+          <Dashcards></Dashcards>
+          <Calender></Calender>
+          {
+
+            //summary card
+            //calendar
+            //action card
+
+          }
           {text}{name}
       </div >
     )

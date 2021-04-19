@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import StyledEngineProvider from '@material-ui/core/StyledEngineProvider';
 
 ReactDOM.render(
   <React.StrictMode>
+      <StyledEngineProvider injectFirst>
+
     <App />
+    </StyledEngineProvider>,
+
   </React.StrictMode>,
   document.getElementById('root')
 );
