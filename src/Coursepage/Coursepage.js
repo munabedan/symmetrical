@@ -2,6 +2,8 @@ import React from 'react';
 import Appbar from './Appbar/Appbar';
 import Dashcards from './Dashcards/Dashcards';
 import Calender from './Calender/Calender'
+import Actioncard from './Activitycard/Actioncard';
+
 class Coursepage extends React.Component {
   
   state = {
@@ -14,26 +16,18 @@ class Coursepage extends React.Component {
   
   
   render() {
-    const { text, match: { params } } = this.props;
-    const { name } = params;
+    //const { text, match: { params } } = this.props;
+    //const { name } = params;
 
     return (
       < div className="Coursepage" >
           <Appbar></Appbar>
           <Dashcards></Dashcards>
           <Calender></Calender>
-          {
-
-            //summary card
-            //calendar
-            //action card
-
-          }
-          {text}{name}
+          <Actioncard></Actioncard>
       </div >
     )
   }
-
 
 }
 

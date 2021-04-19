@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route
             path="/course/:name"
-            render={props => <Coursepage text="Hello, " {...props} />}
+            render={props => <Coursepage text="Hello " {...props} />}
           />
         </Switch>
       </Router>
