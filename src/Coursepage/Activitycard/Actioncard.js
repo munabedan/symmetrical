@@ -1,26 +1,39 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
+const useStyles = makeStyles({
+  card: {
+    marginTop: 0,
+  }
 
+});
 
 export default function Actioncard() {
+
+  const classes = useStyles();
+
   return (
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-          Word of the Day
+    <Grid item margin={7} className={classes.card}>
+      <Grid container direction="row" >
+        <Grid item xs={5}>
+          <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+            10:00AM
         </Typography>
-        <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-          Word of the Day
+          <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+            LHC 201
         </Typography>
-      </CardContent>
-      <CardActions>
-      <Button variant="contained">ATTEND</Button>
-      </CardActions>
-    </Card>
+
+        </Grid>
+        <Grid item xs={5}>
+          <Button variant="contained">ATTEND</Button>
+
+        </Grid>
+
+      </Grid>
+    </Grid>
+
   );
 }

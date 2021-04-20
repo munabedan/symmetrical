@@ -16,8 +16,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
-            path="/course/:name"
-            render={props => <Coursepage text="Hello " {...props} />}
+            path="/:courseId"
+            render={props => <Coursepage {...props} />}
           />
         </Switch>
       </Router>

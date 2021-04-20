@@ -32,28 +32,12 @@ function Dashcards() {
                     <Grid direction="column" justify="center" alignItems="center" spacing={2} container>
                         <Grid item xs={10}>
                             <Typography variant="h5" >
-                                Hello
+                                03
                                 </Typography>
                         </Grid>
                         <Grid item xs={10}>
-                            <Typography variant="h6">
-                                Hello
-                                </Typography>
-                        </Grid>
-                    </Grid>
-                </Paper>
-            </Grid>
-            <Grid item xs={4}>
-                <Paper className={classes.paper}>
-                    <Grid direction="column" justify="center" alignItems="center" spacing={2} container>
-                        <Grid item xs={10}>
-                            <Typography variant="h5" >
-                                Hello
-                                </Typography>
-                        </Grid>
-                        <Grid item xs={10}>
-                            <Typography variant="h6">
-                                Hello
+                            <Typography variant="subtitle1">
+                                Absents
                                 </Typography>
                         </Grid>
                     </Grid>
@@ -64,12 +48,28 @@ function Dashcards() {
                     <Grid direction="column" justify="center" alignItems="center" spacing={2} container>
                         <Grid item xs={10}>
                             <Typography variant="h5" >
-                                Hello
+                                06
                                 </Typography>
                         </Grid>
                         <Grid item xs={10}>
-                            <Typography variant="h6">
-                                Hello
+                            <Typography variant="subtitle1">
+                                leaves left
+                                </Typography>
+                        </Grid>
+                    </Grid>
+                </Paper>
+            </Grid>
+            <Grid item xs={4}>
+                <Paper className={classes.paper}>
+                    <Grid direction="column" justify="center" alignItems="center" spacing={2} container>
+                        <Grid item xs={10}>
+                            <Typography variant="h5" >
+                                33
+                                </Typography>
+                        </Grid>
+                        <Grid item xs={10}>
+                            <Typography variant="subtitle1">
+                                Total classes
                                 </Typography>
                         </Grid>
                     </Grid>

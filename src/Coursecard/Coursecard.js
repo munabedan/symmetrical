@@ -10,20 +10,20 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
-        
+
         display: 'flex',
-        marginBottom:12,
+        marginBottom: 12,
     },
     lectureDetails: {
         display: 'flex',
         flexDirection: 'column',
-        
+
 
     },
     content: {
         flex: 1,
     },
-    
+
     icontext: {
         color: "#ff4965",
         fontWeight: "bolder",
@@ -33,18 +33,19 @@ const useStyles = makeStyles({
     descriptiontext: {
         fontFamily: "roboto",
         fontWeight: "400",
-        color:"dimgrey"
+        color: "dimgrey"
     }
 
 })
 
 const Coursecard = (props) => {
+
     const classes = useStyles();
     const history = useHistory();
 
-    const handleClick=()=>{
-    console.log("clicked");
-    history.push('/course/'+ props.courseId)
+    const handleClick = () => {
+        console.log("clicked");
+        history.push('/' + props.courseId)
     }
 
     return (
@@ -69,7 +70,7 @@ const Coursecard = (props) => {
                     <Typography variant="h6"
                         children={props.leavesLeft}
                         className={classes.icontext}
-                        
+
                     >
                     </Typography>
                     <Typography variant="subtitle2"
@@ -91,7 +92,7 @@ const Coursecard = (props) => {
                     <Typography variant="subtitle2"
                         children="absents"
                         className={classes.descriptiontext}
-                        
+
                     >
                     </Typography>
                 </CardContent>

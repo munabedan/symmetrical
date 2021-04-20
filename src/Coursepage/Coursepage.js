@@ -3,28 +3,40 @@ import Appbar from './Appbar/Appbar';
 import Dashcards from './Dashcards/Dashcards';
 import Calender from './Calender/Calender'
 import Actioncard from './Activitycard/Actioncard';
+import getIndexData from '../Db/getIndexFromDb';
+
 
 class Coursepage extends React.Component {
-  
-  state = {
 
+  state = {
+    courseData: []
   }
 
   componentDidMount() {
-   
+    const { match: { params } } = this.props;
+    const { courseId } = params;
+
+    console.log(courseId)
+    this.asyncRequest = getIndexData('test', 'coursesstore',courseId).then(
+      (externalData) => {
+        this._asyncRequest = null;
+        this.setState({ courseData : externalData })
+      }
+    )
   }
   
   
   render() {
-    //const { text, match: { params } } = this.props;
-    //const { name } = params;
+    
+    console.log(this.state.courseData.courseName)
 
     return (
       < div className="Coursepage" >
-          <Appbar></Appbar>
+          <Appbar courseName={this.state.courseData.courseName} courseId={this.state.courseData.courseId}></Appbar>
           <Dashcards></Dashcards>
           <Calender></Calender>
           <Actioncard></Actioncard>
+          
       </div >
     )
   }

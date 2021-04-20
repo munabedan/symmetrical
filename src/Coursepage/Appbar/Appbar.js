@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
  
 }));
 
-function Appbar() {
+function Appbar(props) {
 
   const classes = useStyles();
 
@@ -24,14 +24,14 @@ function Appbar() {
         <Grid item xs={10}>
 
           <Typography variant="h5">
-            Heat Transfer
+            {props.courseName}
         </Typography>
 
 
         </Grid>
         <Grid item xs={10}>
           <Typography variant="subtitle1">
-            cosc 302
+            {props.courseId}
         </Typography>
         </Grid>
       </Grid >
