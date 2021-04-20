@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Fab.css';
-import Courselist from '../Courselist/Courselist';
-import Addcourse from '../Forms/Addcourse';
+import Courselist from './Courselist';
+import Addcourse from './Addcourse';
 
 
 

@@ -1,10 +1,9 @@
 import React from 'react';
-import './Courselist.css';
 
 import '../Db/getAllFromDb.js'
 import getAllData from '../Db/getAllFromDb';
 
-import Coursecard from '../Coursecard/Coursecard';
+import Coursecard from './Coursecard';
 
 
 class Courselist extends React.Component {

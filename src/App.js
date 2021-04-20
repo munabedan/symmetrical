@@ -3,8 +3,8 @@ import createDb from './Db/createDb'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from './Homepage/Home';
-import Coursepage from './Coursepage/Coursepage';
+import Home from './Home/Home';
+import Course from './Course/Course';
 function App() {
   return (
     <div className="App">
@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route
             path="/:courseId"
-            render={props => <Coursepage {...props} />}
+            render={props => <Course {...props} />}
           />
         </Switch>
       </Router>

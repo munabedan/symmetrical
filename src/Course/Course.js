@@ -1,8 +1,8 @@
 import React from 'react';
-import Appbar from './Appbar/Appbar';
-import Dashcards from './Dashcards/Dashcards';
-import Calender from './Calender/Calender'
-import Actioncard from './Activitycard/Actioncard';
+import Appbar from './Appbar';
+import Dashcards from './Dashcards';
+import Calender from './Calender'
+import Actioncard from './Actioncard';
 import getIndexData from '../Db/getIndexFromDb';
 
 

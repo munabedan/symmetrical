@@ -1,5 +1,4 @@
 import React from 'react';
-import './Addcourseform.css';
 
 import addToDb from '../Db/addToDb';
 

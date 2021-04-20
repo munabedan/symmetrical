@@ -1,6 +1,6 @@
 import React from 'react';
-import Appbar from '../Appbar/Appbar';
-import Fab from '../Fab/Fab';
+import Appbar from './Appbar';
+import Fab from './Fab';
 
 
 class Home extends React.Component {
