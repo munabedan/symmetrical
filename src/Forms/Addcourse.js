@@ -1,6 +1,7 @@
 import React from 'react';
 
 import addToDb from '../Db/addToDb';
+import {withRouter} from 'react-router-dom'
 
 class Addcourse extends React.Component {
 
@@ -19,8 +20,12 @@ class Addcourse extends React.Component {
 
         addToDb("test", "coursesstore", this.state)
 
-        this.props.handler()
+        this.redirectToHome()
 
+    }
+    redirectToHome = () => {
+        const {history}=this.props;
+       if(history) history.push("/")
     }
     render() {
 
@@ -158,7 +163,7 @@ class Addcourse extends React.Component {
 
                             <button className="btn" id="submit">Save</button>
                             <button type="button" className="btn cancel" id="closeForm"
-                                onClick={this.props.handler}
+                                onClick={this.redirectToHome}
                             >Cancel</button>
                         </form>
                     </div>
@@ -170,4 +175,4 @@ class Addcourse extends React.Component {
         );
     }
 };
-export default Addcourse;
+export default withRouter(Addcourse);
