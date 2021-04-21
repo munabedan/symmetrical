@@ -8,7 +8,8 @@ class Addcourse extends React.Component {
 
         courseName: '',
         courseId: '',
-        roomNumber: ''
+        roomNumber: '',
+        lectureDay: []
 
     }
 
@@ -22,6 +23,8 @@ class Addcourse extends React.Component {
 
     }
     render() {
+
+
         return (
             <div>
                 <div className="Addcourseform">
@@ -57,32 +60,101 @@ class Addcourse extends React.Component {
                                 }}
                             />
                             <br></br>
-                            <input type="checkbox" id="mon" name="mon" value="monday" />
+                            <input type="checkbox" id="mon" name="mon"
+                                onChange={(event) => {
+                                    this.setState((prevState) => ({
+                                        lectureDay: [...prevState.lectureDay, "mon"]
+                                    })
+                                    )
+                                }}
+
+                            />
                             <label htmlFor="mon"> Monday</label>
+
                             <br></br>
-                            <input type="checkbox" id="tue" name="tue" value="monday" />
+
+                            <input type="checkbox" id="tue" name="tue"
+                                onChange={(event) => {
+                                    this.setState((prevState) => ({
+                                        lectureDay: [...prevState.lectureDay, "tue"]
+                                    })
+                                    )
+                                }}
+                            />
                             <label htmlFor="tue"> Tuesday</label>
+
                             <br></br>
-                            <input type="checkbox" id="wed" name="wed" value="monday" />
+
+                            <input type="checkbox" id="wed" name="wed"
+                                onChange={(event) => {
+                                    this.setState((prevState) => ({
+                                        lectureDay: [...prevState.lectureDay, "wed"]
+                                    })
+                                    )
+                                }}
+                            />
                             <label htmlFor="wed"> Wednesday</label>
+
                             <br></br>
-                            <input type="checkbox" id="thu" name="thu" value="monday" />
+
+                            <input type="checkbox" id="thu" name="thu"
+                                onChange={(event) => {
+                                    this.setState((prevState) => ({
+                                        lectureDay: [...prevState.lectureDay, "thu"]
+                                    })
+                                    )
+                                }}
+                            />
                             <label htmlFor="thu"> Thursday</label>
+
                             <br></br>
-                            <input type="checkbox" id="fri" name="fri" value="monday" />
+
+                            <input type="checkbox" id="fri" name="fri"
+                                onChange={(event) => {
+                                    this.setState((prevState) => ({
+                                        lectureDay: [...prevState.lectureDay, "fri"]
+                                    })
+                                    )
+                                }}
+                            />
                             <label htmlFor="fri"> Friday</label>
+
                             <br></br>
-                            <input type="checkbox" id="sat" name="sat" value="monday" />
+
+                            <input type="checkbox" id="sat" name="sat"
+                                onChange={(event) => {
+                                    this.setState((prevState) => ({
+                                        lectureDay: [...prevState.lectureDay, "sat"]
+                                    })
+                                    )
+                                }}
+                            />
                             <label htmlFor="sat"> Saturday</label>
+
                             <br></br>
-                            <input type="checkbox" id="sun" name="sun" value="monday" />
+
+                            <input type="checkbox" id="sun" name="sun"
+                                onChange={(event) => {
+                                    this.setState((prevState) => ({
+                                        lectureDay: [...prevState.lectureDay, "sun"]
+                                    })
+                                    )
+                                }}
+                            />
                             <label htmlFor="sun"> Sunday</label>
+
                             <br></br>
 
                             <label htmlFor="appt">Choose a time for your meeting:</label>
 
-                            <input type="time" id="appt" name="appt" min="09:00" max="18:00" required />
-                                <br></br>
+                            <input type="time" id="appt" name="appt" required
+                                onChange={(event) => {
+                                    this.setState({
+                                        lectureTime: event.target.value
+                                    })
+                                }}
+                            />
+                            <br></br>
 
                             <button className="btn" id="submit">Save</button>
                             <button type="button" className="btn cancel" id="closeForm"
