@@ -12,6 +12,8 @@ class Coursepage extends React.Component {
     courseData: []
   }
 
+ 
+
   componentDidMount() {
     const { match: { params } } = this.props;
     const { courseId } = params;
@@ -24,6 +26,7 @@ class Coursepage extends React.Component {
       }
     )
   }
+  
   
   
   render() {

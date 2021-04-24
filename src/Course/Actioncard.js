@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import {useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles({
   card: {
@@ -14,6 +15,11 @@ const useStyles = makeStyles({
 export default function Actioncard() {
 
   const classes = useStyles();
+  let history = useHistory();
+
+  function redirectToVerifyLocation() {
+    history.push("/getlocation");
+  }
 
   return (
     <Grid item margin={7} className={classes.card}>
@@ -28,7 +34,7 @@ export default function Actioncard() {
 
         </Grid>
         <Grid item xs={5}>
-          <Button variant="contained">ATTEND</Button>
+          <Button variant="contained" onClick={redirectToVerifyLocation}>ATTEND</Button>
 
         </Grid>
 

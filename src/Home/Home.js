@@ -19,10 +19,12 @@ const styles=theme=>({
 
 
 class Home extends React.Component {
+
     redirectToAddCourse = () => {
         const {history}=this.props;
        if(history) history.push("/addcourse")
     }
+    
     render() {
 
          const {classes} =this.props;
