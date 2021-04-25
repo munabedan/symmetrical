@@ -3,40 +3,57 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid';
 
 import Typography from '@material-ui/core/Typography';
 import { useHistory } from 'react-router-dom';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
 
-        display: 'flex',
-        marginBottom: 12,
+        //display: 'flex',
+        marginBottom:theme.spacing(2),
+        minHeight:80,
     },
-    lectureDetails: {
-        display: 'flex',
-        flexDirection: 'column',
+    courseTitle:{
+        paddingTop:theme.spacing(1),
+        paddingLeft:theme.spacing(1),
+        color:'black',
+
+    },
+    courseDescription:{
+        paddingTop:theme.spacing(1),
+        paddingLeft:theme.spacing(1),
+        color: "grey",
+        fontSize:12,
 
 
     },
-    content: {
-        flex: 1,
-    },
-
-    icontext: {
-        color: "#ff4965",
+    
+    leavesicontext: {
+        color: "#ff8664",
         fontWeight: "bolder",
         textAlign: "center",
-        fontFamily: "roboto"
+        fontFamily: "roboto",
+        fontSize:24,
     },
+    absentsicontext: {
+        color: 'black',
+        fontWeight: "bolder",
+        textAlign: "center",
+        fontFamily: "roboto",
+        fontSize:24,
+    },
+
     descriptiontext: {
         fontFamily: "roboto",
-        fontWeight: "400",
-        color: "dimgrey"
+        fontSize:12,
+        color: "grey",
+        textAlign:'center',
+
     }
 
-})
+}))
 
 const Coursecard = (props) => {
 
@@ -51,52 +68,54 @@ const Coursecard = (props) => {
     return (
 
         <Card className={classes.root} onClick={handleClick}>
-            <div className={classes.lectureDetails}>
-                <CardContent className={classes.content}>
+            <Grid container>
+                <Grid item xs={6}>
                     <Typography component="p"
                         variant="subtitle2"
                         children={props.courseName}
+                        className={classes.courseTitle}
+                        noWrap={true}
+
                     >
                     </Typography>
                     <Typography variant="subtitle2"
                         children={props.courseCode}
-                        className={classes.descriptiontext}>
-                    </Typography>
-                </CardContent>
-            </div>
+                        className={classes.courseDescription}
 
-            <div className={classes.leavesDetails}>
-                <CardContent className={classes.content}>
+                        >
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
                     <Typography variant="h6"
                         children={props.leavesLeft}
-                        className={classes.icontext}
+                        className={classes.leavesicontext}
 
                     >
                     </Typography>
                     <Typography variant="subtitle2"
-                        children="leaves"
+                        children="LEAVES"
                         className={classes.descriptiontext}
 
                     >
                     </Typography>
-                </CardContent>
-            </div>
-            <div className={classes.absentsDetails}>
-                <CardContent>
+                </Grid>
+                <Grid item xs={3}>
                     <Typography variant="h6"
                         children={props.absentsIncurred}
-                        className={classes.icontext}
+                        className={classes.absentsicontext}
 
                     >
                     </Typography>
                     <Typography variant="subtitle2"
-                        children="absents"
+                        children="ABSENTS"
                         className={classes.descriptiontext}
 
                     >
                     </Typography>
-                </CardContent>
-            </div>
+                </Grid>
+            </Grid>
+
+          
 
         </Card>
     )

@@ -26,13 +26,16 @@ class Courselist extends React.Component {
     let cards=[]
 
     this.state.courseData.forEach(course => {
+      let Left=5;
+      let Incurred=1;
       cards.push(
-
+        
+        
         <Coursecard key={course.courseId} 
          courseName={course.courseName}
-         courseId={course.courseId}
-         leavesLeft="6" 
-         absentsIncurred="5"
+         courseCode={course.courseId}
+         leavesLeft={Left.toString().padStart('2','0')}
+         absentsIncurred={Incurred.toString().padStart('2','0')}
         >
 
         </Coursecard>
