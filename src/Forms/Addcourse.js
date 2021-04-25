@@ -78,7 +78,7 @@ class Addcourse extends React.Component {
     submitHandler = (event) => {
         event.preventDefault();
         let dateObj = this.state.courseTime;
-        let time = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi').format(' HH:mm:ss')
+        let time = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi').format(' HH:mm')
         console.log(time);
         this.setState({
             courseTime: time

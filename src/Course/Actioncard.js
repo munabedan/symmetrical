@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Actioncard() {
+export default function Actioncard(props) {
 
   const classes = useStyles();
   let history = useHistory();
@@ -46,13 +46,13 @@ export default function Actioncard() {
           <Grid container direction="column" justify="center" alignItems="center">
             <Grid item>
               <Typography variant="h6">
-                10:00AM
+                {props.courseTime}
           </Typography>
             </Grid>
 
             <Grid item>
               <Typography variant="subtitle1">
-                LHC 201
+                {props.roomNumber}
           </Typography>
             </Grid>
           </Grid>

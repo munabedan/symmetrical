@@ -35,10 +35,14 @@ class Coursepage extends React.Component {
 
     return (
       < div className="Coursepage" >
-          <Appbar courseName={this.state.courseData.courseName} courseId={this.state.courseData.courseId}></Appbar>
+          <Appbar courseName={this.state.courseData.courseName} 
+          courseId={this.state.courseData.courseId}
+          ></Appbar>
           <Dashcards></Dashcards>
           <Calender></Calender>
-          <Actioncard></Actioncard>
+          <Actioncard roomNumber={this.state.courseData.roomNumber}
+          courseTime={this.state.courseData.courseTime}
+          ></Actioncard>
           
       </div >
     )
