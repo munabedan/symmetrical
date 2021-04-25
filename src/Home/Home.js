@@ -12,8 +12,9 @@ const styles=theme=>({
     fab: {
         right:20,
         bottom:20,
-        position: "fixed"
-        
+        position: "fixed",
+        background: 'linear-gradient(45deg, #Ff8664 10%, #FF4965 90%)',
+
       }
 });
 
@@ -33,7 +34,7 @@ class Home extends React.Component {
             <div className="Home">
                 <Appbar></Appbar>
                 <Courselist></Courselist>
-                <Fab color="primary" size="medium" className={classes.fab}
+                <Fab color='primary' size="medium" className={classes.fab}
                 onClick={this.redirectToAddCourse} >
                     <AddIcon/>
                 </Fab>
