@@ -62,7 +62,7 @@ const Coursecard = (props) => {
 
     const handleClick = () => {
         console.log("clicked");
-        history.push('/' + props.courseId)
+        history.push('/' + props.courseCode)
     }
 
     return (

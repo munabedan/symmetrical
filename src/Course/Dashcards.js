@@ -9,9 +9,43 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     paper: {
-        //height: 100,
-        //width: 100,
+        margin: theme.spacing(1),
+        height: 90,
     },
+    paperAbsents: {
+        margin: theme.spacing(1),
+        height: 90,
+        background: 'linear-gradient(45deg, #Ff8664 10%, #FF4965 90%)',
+
+    },
+    iconTextAbsents:{
+        height:50,
+        display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    color:'white',
+
+    },
+    iconTextTotal:{
+        height:50,
+        display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    color:'#74CEF6',
+
+    },
+    iconTextLeaves:{
+        height:50,
+        display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    color:'#ff4965',
+        fontWeight:'bolder',
+    },
+    descriptionText:{
+        color:'white',
+    },
+    
     control: {
         padding: theme.spacing(2),
     },
@@ -23,19 +57,21 @@ function Dashcards() {
 
 
     return (
-        
+
 
 
         <Grid direction="row" container spacing={1}>
+
             <Grid item xs={4} >
-                <Paper className={classes.paper}>
-                    <Grid direction="column" justify="center" alignItems="center" spacing={2} container>
-                        <Grid item xs={10}>
+                <Paper className={classes.paperAbsents}>
+                    <Grid container direction='column' alignItems="center" 
+                    >
+                        <Grid item className={classes.iconTextAbsents} >
                             <Typography variant="h5" >
-                                03
+                                33
                                 </Typography>
                         </Grid>
-                        <Grid item xs={10}>
+                        <Grid item className={classes.descriptionText}>
                             <Typography variant="subtitle1">
                                 Absents
                                 </Typography>
@@ -43,33 +79,35 @@ function Dashcards() {
                     </Grid>
                 </Paper>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={4} >
                 <Paper className={classes.paper}>
-                    <Grid direction="column" justify="center" alignItems="center" spacing={2} container>
-                        <Grid item xs={10}>
+                    <Grid container direction='column' alignItems="center" 
+                    >
+                        <Grid item className={classes.iconTextLeaves} >
                             <Typography variant="h5" >
-                                06
+                                33
                                 </Typography>
                         </Grid>
-                        <Grid item xs={10}>
+                        <Grid item>
                             <Typography variant="subtitle1">
-                                leaves left
+                                leaves
                                 </Typography>
                         </Grid>
                     </Grid>
                 </Paper>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={4} >
                 <Paper className={classes.paper}>
-                    <Grid direction="column" justify="center" alignItems="center" spacing={2} container>
-                        <Grid item xs={10}>
+                    <Grid container direction='column' alignItems="center" 
+                    >
+                        <Grid item className={classes.iconTextTotal} >
                             <Typography variant="h5" >
                                 33
                                 </Typography>
                         </Grid>
-                        <Grid item xs={10}>
+                        <Grid item>
                             <Typography variant="subtitle1">
-                                Total classes
+                                Total
                                 </Typography>
                         </Grid>
                     </Grid>

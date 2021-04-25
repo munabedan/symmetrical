@@ -1,4 +1,8 @@
 import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Box from '@material-ui/core/Box';
+
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,10 +10,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-      height:120
+  courseappbar: {
+    minHeight: 90,
+    background: 'linear-gradient(45deg, #Ff8664 10%, #FF4965 90%)',
+
   },
- 
+
 }));
 
 function Appbar(props) {
@@ -18,23 +24,27 @@ function Appbar(props) {
 
 
   return (
-    <div className={classes.root}>
-      <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
-        <Grid item xs={10}>
 
-          <Typography variant="h5">
-            {props.courseName}
+    <Grid container direction="column" >
+      <Grid item>
+        <Typography variant="h5" align="center">
+          {props.courseName}
         </Typography>
-
-
-        </Grid>
-        <Grid item xs={10}>
-          <Typography variant="subtitle1">
-            {props.courseId}
+      </Grid>
+      <Grid item>
+        <Typography variant="subtitle1" align="center">
+          {props.courseId}
         </Typography>
-        </Grid>
-      </Grid >
-    </div>
+      </Grid>
+
+
+
+
+    </Grid>
+
+
+
+
 
 
   );
