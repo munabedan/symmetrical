@@ -4,6 +4,7 @@ import '../Db/getAllFromDb.js'
 import getAllData from '../Db/getAllFromDb';
 
 import Coursecard from './Coursecard';
+import Typography from '@material-ui/core/Typography';
 
 
 class Courselist extends React.Component {
@@ -47,6 +48,9 @@ class Courselist extends React.Component {
 
     return (
       < div className="Classlist" >
+         <Typography variant="h6"  align="center">
+  All courses
+</Typography>
         {cards}
       </div >
     )
