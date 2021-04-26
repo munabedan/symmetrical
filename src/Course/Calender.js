@@ -17,7 +17,7 @@ export default function Calender() {
         size="small"
         variant="static"
         orientation="landscape"
-        ToolbarComponent={'Toolbar'}
+        disableToolbar
       />
 
 
