@@ -1,18 +1,26 @@
-import * as React from 'react';
-import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
-import LocalizaitonProvider from '@material-ui/lab/LocalizationProvider';
-import DayPicker from '@material-ui/lab/DayPicker';
+import React, { useState } from 'react';
+
+import MomentUtils from '@date-io/moment';
+import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 export default function Calender() {
-  const [date, setDate] = React.useState(new Date());
+  const [selectedDate, handleDateChange] = useState(new Date());
 
   return (
-    <LocalizaitonProvider dateAdapter={AdapterDateFns}>
-      <DayPicker
-        allowKeyboardControl={false}
-        date={date}
-        onChange={(newValue) => setDate(newValue)}
+
+
+    <MuiPickersUtilsProvider utils={MomentUtils}>
+
+      <DatePicker
+        value={selectedDate}
+        onChange={handleDateChange}
+        size="small"
+        variant="static"
+        orientation="landscape"
+        ToolbarComponent={'Toolbar'}
       />
-    </LocalizaitonProvider>
+
+
+    </MuiPickersUtilsProvider>
   );
 }
