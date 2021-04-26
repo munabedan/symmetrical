@@ -7,7 +7,7 @@ import Home from './Home/Home';
 import Course from './Course/Course';
 import Addcourse from './Forms/Addcourse';
 import Verifylocation from './Geolocation/Verifylocation';
-
+import Face from './Face/Face';
 function App() {
   return (
     <div className="App">
@@ -20,6 +20,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/addcourse" component={Addcourse}/>
           <Route exact path="/getlocation" component={Verifylocation}/>
+          <Route exact path="/face" component={Face}/>
           <Route
             path="/:courseId"
             render={props => <Course {...props} />}

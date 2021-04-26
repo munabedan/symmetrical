@@ -1,15 +1,30 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker  } from 'google-maps-react';
+import Button from '@material-ui/core/Button'
+import { withRouter } from 'react-router-dom'
 
 const mapStyles = {
   width: '100%',
-  height: '50%'
+  height: '100%'
 };
 
+const btnStyle={
+  position:'absolute',
+    background: 'linear-gradient(45deg, #Ff8664 10%, #FF4965 90%)',
+    bottom:1,
+
+
+};
 class Verifylocation extends Component {
+
   state={
 
   }
+  redirectToFace = () => {
+    const {history}=this.props;
+   if(history) history.push("/face")
+}
+
   componentWillMount(){
       if ("geolocation" in navigator){
           console.log("Available")
@@ -42,6 +57,7 @@ class Verifylocation extends Component {
     return (
 
       <div>
+        <div>
         {
           this.state.coords
           ?
@@ -63,12 +79,23 @@ class Verifylocation extends Component {
           :
           ''
         }
-        
+        </div>
+        <Button
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        style={btnStyle}
+                        size="large"
+                        onClick={this.redirectToFace}
+                    >
+                        Accept location
+          </Button>
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
+export default withRouter(GoogleApiWrapper({
   apiKey: 'AIzaSyBmNgXzm1QV4QEnni5oivpK5HJu_GpwtnE'
-})(Verifylocation);
+})(Verifylocation))
+;
