@@ -20,8 +20,11 @@ class Verifylocation extends Component {
             let longitude=parseFloat(position.coords.longitude);
           this.setState(
               {
-                  latitude:latitude,
-                  longitude:longitude
+                coords:{
+                  lat:latitude,
+                  lng:longitude
+                }
+                  
 
               }
           )
@@ -30,26 +33,37 @@ class Verifylocation extends Component {
           console.log("Not Available")
       }
   }
-  
+  showState(){
+    console.log(this.state)
+  }
   render() {
-    console.log("log state:",this.state.longitude)
+    console.log("log state:",this.state)
 
     return (
+
       <div>
-        <Map
+        {
+          this.state.coords
+          ?
+          <Map
           google={this.props.google}
           zoom={14}
           style={mapStyles}
           initialCenter={{
-            lat:+this.state.latitude,
-            lng:+this.state.longitude
+            lat:this.state.coords.lat,
+            lng:this.state.coords.lng,
           }}
         >
+          {this.showState()}
          <Marker
           onClick={this.onMarkerClick}
           name={'This is test name'}
         />
         </Map>
+          :
+          ''
+        }
+        
       </div>
     );
   }
