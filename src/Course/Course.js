@@ -2,7 +2,6 @@ import React from 'react';
 import Appbar from './Appbar';
 import Dashcards from './Dashcards';
 import Calender from './Calender'
-import Actioncard from './Actioncard';
 import getIndexData from '../Db/getIndexFromDb';
 
 
@@ -31,7 +30,6 @@ class Coursepage extends React.Component {
   
   render() {
     
-    console.log(this.state.courseData.courseName)
 
     return (
       < div className="Coursepage" >
@@ -39,10 +37,15 @@ class Coursepage extends React.Component {
           courseId={this.state.courseData.courseId}
           ></Appbar>
           <Dashcards></Dashcards>
-          <Calender></Calender>
-          <Actioncard roomNumber={this.state.courseData.roomNumber}
-          courseTime={this.state.courseData.courseTime}
-          ></Actioncard>
+          {this.state.courseData.courseAttendance ?
+            <Calender attendanceData={this.state.courseData.courseAttendance}
+            courseTime={this.state.courseData.courseTime}
+            courseDay={this.state.courseData.lectureDay}
+            roomNumber={this.state.courseData.roomNumber}
+            ></Calender>
+          : ''}
+          
+         
           
       </div >
     )
