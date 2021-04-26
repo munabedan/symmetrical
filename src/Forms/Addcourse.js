@@ -71,7 +71,8 @@ class Addcourse extends React.Component {
         courseId: '',
         roomNumber: '',
         lectureDay: [],
-        courseTime: new moment()
+        courseTime: new moment(),
+        courseAttendance:[]
 
     }
 
