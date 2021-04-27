@@ -35,7 +35,9 @@ export default function Actioncard(props) {
   let history = useHistory();
 
   function redirectToVerifyLocation() {
-    history.push("/getlocation");
+    //history.push("/getlocation");
+    history.push('/getlocation/' + props.courseCode)
+
   }
 
   return (

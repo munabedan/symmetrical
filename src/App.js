@@ -19,12 +19,16 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/addcourse" component={Addcourse}/>
-          <Route exact path="/getlocation" component={Verifylocation}/>
           <Route exact path="/face" component={Face}/>
+          <Route
+            path="/getlocation/:courseId"
+            render={props => <Verifylocation {...props} />}
+          />
           <Route
             path="/:courseId"
             render={props => <Course {...props} />}
           />
+          
 
         </Switch>
       </Router>

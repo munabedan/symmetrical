@@ -152,7 +152,9 @@ export default function Calender(props) {
     {
     actionCard
     ?
-    <Actioncard roomNumber={props.roomNumber}
+    <Actioncard 
+    courseCode={props.courseCode}
+    roomNumber={props.roomNumber}
     courseTime={readerbleTime}
     ></Actioncard>
     :

@@ -22,6 +22,8 @@ class Coursepage extends React.Component {
       (externalData) => {
         this._asyncRequest = null;
         this.setState({ courseData : externalData })
+        console.log(this.state)
+
       }
     )
   }
@@ -42,6 +44,7 @@ class Coursepage extends React.Component {
             courseTime={this.state.courseData.courseTime}
             courseDay={this.state.courseData.lectureDay}
             roomNumber={this.state.courseData.roomNumber}
+            courseCode={this.state.courseData.courseId}
             ></Calender>
           : ''}
           
