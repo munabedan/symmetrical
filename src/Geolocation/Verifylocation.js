@@ -31,11 +31,14 @@ class Verifylocation extends Component {
   constructor(props) {
     super(props);
     this.updateRecords = this.updateRecords.bind(this);
+    this.redirectToCourse = this.redirectToCourse.bind(this);
+
   } 
   redirectToCourse = () => {
-
+    const { match: { params } } = this.props;
+    const { courseId } = params;
     const { history } = this.props;
-    if (history) history.push('/')
+    history.push('/' + courseId)
 
   }
   updateRecords() {
@@ -58,7 +61,7 @@ class Verifylocation extends Component {
     //updateRecordIndexFromDb('test', 'coursesstore',courseId)
     deleteIndexFromDb("test", "coursesstore", courseId)
     addToDb("test", "coursesstore", courseData)
-
+      this.redirectToCourse()
 
 
 
