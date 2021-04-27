@@ -4,6 +4,7 @@ import MomentUtils from '@date-io/moment';
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { makeStyles } from '@material-ui/core/styles';
 import Actioncard from './Actioncard';
+import getIndexData from '../Db/getIndexFromDb';
 
 import moment from 'moment-timezone';
 
@@ -60,7 +61,8 @@ export default function Calender(props) {
   const classes = useStyles();
 
   let readerbleTime=moment().tz('Africa/Nairobi').format("hh:mm A");
-
+  
+  
   function showActionCard() {
     /* logic:
     -get dayofweek/timenow
@@ -68,8 +70,8 @@ export default function Calender(props) {
     -compare if(dayofweek included in courseDay[] ) && if(timeNow is between coursetime to coursetime + 1hr)
 
      */
-    setAttendanceData(props.attendanceData)
-    //console.log(attendanceData)
+  
+
     let dateObj = new moment();
     let dayOfWeek = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi').format('ddd').toLowerCase()
     let time = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi')
@@ -102,9 +104,11 @@ export default function Calender(props) {
   }
 
   function renderDay(day) {
+
+
     return (
       <div>
-        { day.date() === 15 ?
+        { attendanceData.includes(day.date()) ?
           <div className={classes.day}>
             <span className={classes.content}>
               <p className={classes.dateAttended}>
@@ -114,7 +118,7 @@ export default function Calender(props) {
           </div>
 
           :
-          <div className={classes.dateMissed}>
+          <div className={classes.day}>
             <span className={classes.content}>
               <p className={classes.date}>
                 {day.date()}
@@ -127,7 +131,24 @@ export default function Calender(props) {
   }
   useEffect(() => {
     // Anything in here is fired on component mount.
+    getIndexData('test', 'coursesstore',props.courseCode).then(function(result) {
+      let dateArray=[];
+      let datesAttended=[];
+      dateArray=result.courseAttendance;
+      console.log(dateArray)
+      dateArray.forEach(d => {
+        let dateObj=moment(d.date)
+        let date=moment.tz(dateObj, 'UTC').tz('Africa/Nairobi')
 
+        console.log(date.date())
+        datesAttended.push(date.date())
+      });
+
+      setAttendanceData(datesAttended)
+
+      // here you can use the result of promiseB
+  });
+    
     console.log("componetWIllmount")
     showActionCard(props)
   }, []);
