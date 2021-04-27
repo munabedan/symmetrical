@@ -8,7 +8,7 @@ function createDb(dbName,storeName,keyName) {
     openRequest.onupgradeneeded = function (e) {
          db = e.target.result;
         if (!db.objectStoreNames.contains(storeName)) {
-            db.createObjectStore(storeName, { keyPath: keyName });
+            db.createObjectStore(storeName, { keyPath: keyName ,autoIncrement:true});
             console.log("store created")
         }
     };

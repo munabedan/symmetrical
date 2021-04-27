@@ -4,6 +4,10 @@ import Button from '@material-ui/core/Button'
 import { withRouter } from 'react-router-dom'
 import getIndexData from '../Db/getIndexFromDb';
 import updateRecordIndexFromDb from '../Db/updateRecordIndexFromDb';
+import addToDb from '../Db/addToDb';
+
+import deleteIndexFromDb from '../Db/deleteIndexFromDb'
+
 import moment from 'moment-timezone';
 
 
@@ -52,6 +56,10 @@ class Verifylocation extends Component {
     console.log(courseData)
     console.log(courseId)
     //updateRecordIndexFromDb('test', 'coursesstore',courseId)
+    deleteIndexFromDb("test", "coursesstore", courseId)
+    addToDb("test", "coursesstore", courseData)
+
+
 
 
   }
