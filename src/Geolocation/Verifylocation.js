@@ -3,7 +3,6 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import Button from '@material-ui/core/Button'
 import { withRouter } from 'react-router-dom'
 import getIndexData from '../Db/getIndexFromDb';
-import updateRecordIndexFromDb from '../Db/updateRecordIndexFromDb';
 import addToDb from '../Db/addToDb';
 
 import deleteIndexFromDb from '../Db/deleteIndexFromDb'

@@ -1,7 +1,4 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Box from '@material-ui/core/Box';
 
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -11,7 +8,7 @@ import Delete from '@material-ui/icons/Delete'
 import deleteIndexFromDb from '../Db/deleteIndexFromDb'
 import { useHistory } from 'react-router-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
+/*import { makeStyles } from '@material-ui/core/styles';
 
 
 
@@ -22,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
 
   },
 
-}));
+}));*/
 
 function Appbar(props) {
 
-  const classes = useStyles();
+  //const classes = useStyles();
   const history = useHistory();
 
   const redirectClick = () => {

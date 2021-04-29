@@ -74,7 +74,7 @@ export default function Calender(props) {
 
     let dateObj = new moment();
     let dayOfWeek = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi').format('ddd').toLowerCase()
-    let time = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi')
+    //let time = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi')
     let dateToday = dateObj.format("YYYY-MM-DD")
     
 
