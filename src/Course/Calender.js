@@ -51,18 +51,19 @@ const useStyles = makeStyles((theme) => ({
     transform: 'scale(0.75)',
 
   },
+  
 }));
 
 export default function Calender(props) {
   const [selectedDate, handleDateChange] = useState(new Date());
   const [attendanceData, setAttendanceData] = useState('');
-  const [actionCard,setActionCard]=useState(false);
+  const [actionCard, setActionCard] = useState(false);
 
   const classes = useStyles();
 
-  let readerbleTime=moment().tz('Africa/Nairobi').format("hh:mm A");
-  
-  
+  let readerbleTime = moment().tz('Africa/Nairobi').format("hh:mm A");
+
+
   function showActionCard() {
     /* logic:
     -get dayofweek/timenow
@@ -70,17 +71,16 @@ export default function Calender(props) {
     -compare if(dayofweek included in courseDay[] ) && if(timeNow is between coursetime to coursetime + 1hr)
 
      */
-  
-console.log(props)
+
     let dateObj = new moment();
     let dayOfWeek = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi').format('ddd').toLowerCase()
     //let time = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi')
     let dateToday = dateObj.format("YYYY-MM-DD")
-    
+
 
     //var date = moment().tz('Africa/Nairobi').startOf('day');
 
-    let 
+    let
       setClassTime = moment(dateToday),
       timeStr = moment(props.courseTime, 'HH:mm');
 
@@ -104,85 +104,106 @@ console.log(props)
 
   }
 
-  function renderDay(day) {
+  function renderDay(day,selectedDate,dayInCurrentMonth,dayComponent) {
+
+    let dateTile
+    console.log(day.toISOString())
 
 
-    return (
-      <div>
-        { attendanceData.includes(day.date()) ?
-          <div className={classes.day}>
-            <span className={classes.content}>
-              <p className={classes.dateAttended}>
-                {day.date()}
-              </p>
-            </span>
-          </div>
 
-          :
-          <div className={classes.day}>
-            <span className={classes.content}>
-              <p className={classes.date}>
-                {day.date()}
-              </p>
-            </span>
-          </div>
-        }
-      </div>
-    );
+    if (dayInCurrentMonth) {
+
+      dateTile = (
+        <div>
+
+          { attendanceData.includes(day.toISOString()) ?
+            <div className={classes.day}>
+              <span className={classes.content}>
+                <p className={classes.dateAttended}>
+                  {day.date()}
+                </p>
+              </span>
+            </div>
+
+            :
+            <div className={classes.day}>
+              <span className={classes.content}>
+                <p className={classes.date}>
+                  {day.date()}
+                </p>
+              </span>
+            </div>
+          }
+        </div>
+      )
+    } else {
+      dateTile = (
+        <div className={classes.day}>
+          <span className={classes.content}>
+            <p className={classes.date}>
+              {day.date()}
+            </p>
+          </span>
+        </div>
+      )
+    }
+    return dateTile
   }
   useEffect(() => {
     // Anything in here is fired on component mount.
-    getIndexData('test', 'coursesstore',props.courseCode).then(function(result) {
-      let dateArray=[];
-      let datesAttended=[];
-      dateArray=result.courseAttendance;
+    getIndexData('test', 'coursesstore', props.courseCode).then(function (result) {
+      let dateArray = [];
+      let datesAttended = [];
+      dateArray = result.courseAttendance;
       console.log(dateArray)
       dateArray.forEach(d => {
-        let dateObj=moment(d.date)
-        let date=moment.tz(dateObj, 'UTC').tz('Africa/Nairobi')
+        let dateObj = moment(d.date)
+        dateObj.set({'hour':0,'minute':0,'second':0,'millisecond':0})
 
-        console.log(date.date())
-        datesAttended.push(date.date())
+        let date = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi')
+
+       // console.log(date.toISOString())
+        datesAttended.push(date.toISOString())
       });
 
       setAttendanceData(datesAttended)
 
       // here you can use the result of promiseB
-  });
-    
+    });
+
     console.log("componetWIllmount")
     showActionCard()
   }, []);
   return (
 
-<div>
+    <div>
 
-    <MuiPickersUtilsProvider utils={MomentUtils}>
+      <MuiPickersUtilsProvider utils={MomentUtils}>
 
-      <DatePicker
-        value={selectedDate}
-        onChange={handleDateChange}
-        renderDay={renderDay}
-        size="small"
-        variant="static"
-        orientation="landscape"
-        disableToolbar
-      />
+        <DatePicker
+          value={selectedDate}
+          onChange={handleDateChange}
+          renderDay={(day,selectedDate,dayInCurrentMonth,dayComponent)=>renderDay(day,selectedDate,dayInCurrentMonth,dayComponent)}
+          size="small"
+          variant="static"
+          orientation="landscape"
+          disableToolbar
+        />
 
 
-    </MuiPickersUtilsProvider>
-    {
-    actionCard
-    ?
-    <Actioncard 
-    courseCode={props.courseCode}
-    roomNumber={props.roomNumber}
-    courseTime={readerbleTime}
-    ></Actioncard>
-    :
-    ''
-    }
-    
-     </div>
+      </MuiPickersUtilsProvider>
+      {
+        actionCard
+          ?
+          <Actioncard
+            courseCode={props.courseCode}
+            roomNumber={props.roomNumber}
+            courseTime={readerbleTime}
+          ></Actioncard>
+          :
+          ''
+      }
+
+    </div>
   );
 }
