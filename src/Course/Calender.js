@@ -71,7 +71,7 @@ export default function Calender(props) {
 
      */
   
-
+console.log(props)
     let dateObj = new moment();
     let dayOfWeek = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi').format('ddd').toLowerCase()
     //let time = moment.tz(dateObj, 'UTC').tz('Africa/Nairobi')
@@ -96,6 +96,7 @@ export default function Calender(props) {
       console.log("day is today")
       if (dateObj.isBetween(setClassTime, maxTime)) {
         console.log("time is now")
+        console.log(actionCard)
         setActionCard(true)
       }
 
@@ -150,7 +151,7 @@ export default function Calender(props) {
   });
     
     console.log("componetWIllmount")
-    showActionCard(props)
+    showActionCard()
   }, []);
   return (
 

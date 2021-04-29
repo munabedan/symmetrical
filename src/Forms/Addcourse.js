@@ -234,7 +234,7 @@ class Addcourse extends React.Component {
                                         name="thr"
                                         onChange={(event) => {
                                             this.setState((prevState) => ({
-                                                lectureDay: [...prevState.lectureDay, "thr"]
+                                                lectureDay: [...prevState.lectureDay, "thu"]
                                             })
                                             )
                                         }}
