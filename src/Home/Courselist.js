@@ -28,7 +28,7 @@ class Courselist extends React.Component {
 
     this.state.courseData.forEach(course => {
       let Left=5;
-      let Incurred=1;
+      let Incurred=0;
       cards.push(
         
         

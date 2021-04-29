@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Dashcards() {
+function Dashcards(props) {
 
     const classes = useStyles();
 
@@ -68,7 +68,7 @@ function Dashcards() {
                     >
                         <Grid item className={classes.iconTextAbsents} >
                             <Typography variant="h5" >
-                                33
+                                {props.absentsIncurred}
                                 </Typography>
                         </Grid>
                         <Grid item className={classes.descriptionText}>
@@ -85,7 +85,7 @@ function Dashcards() {
                     >
                         <Grid item className={classes.iconTextLeaves} >
                             <Typography variant="h5" >
-                                33
+                                {props.leavesLeft}
                                 </Typography>
                         </Grid>
                         <Grid item>
@@ -101,8 +101,10 @@ function Dashcards() {
                     <Grid container direction='column' alignItems="center" 
                     >
                         <Grid item className={classes.iconTextTotal} >
-                            <Typography variant="h5" >
-                                33
+                            <Typography variant="h5" 
+                            children={props.totalClasses}
+                            >
+                                
                                 </Typography>
                         </Grid>
                         <Grid item>
